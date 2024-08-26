@@ -14,7 +14,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="icon" href="/favicon_logo.jpg" type="image/x-icon" />
+    <link rel="icon" href="favicon_logo.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -22,7 +22,7 @@
       <div class="container-fluid fixed-top topbar">
         <div class="row d-flex justify-content-center align-items-center">
           <div class="col-2 col-md-2 col-lg-2 logo-col p-1">
-            <img src="/logo_page.png" class="img-fluid" alt="logo" />
+            <img src="logo_page.png" class="img-fluid" alt="logo" />
           </div>
 
           <div class="col-10 col-md-10 col-lg-10 nav-col p-0">
@@ -157,10 +157,9 @@
                         <h5 class="card-title">
                           <i class="fas fa-th-list"></i> Total Categories
                         </h5>
-                        <h4
-                          class="card-text categories"
-                          id="total_category"
-                        >120</h4>
+                        <h4 class="card-text categories" id="total_category">
+                          120
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -502,10 +501,7 @@
             <!-- upload video page -->
             <section class="add_new_videoPage d-none" id="new_video">
               <div class="main-content">
-                <div class="form-container m-4" id="upload-video">
-                  <button type="button" id="back-btn" class="btn btn-danger">
-                    Back
-                  </button>
+                <div class="form-container my-4" id="upload-video">
                   <h2 class="text-center heading">Upload Video</h2>
 
                   <form id="video-form">
@@ -662,8 +658,15 @@
                       />
                     </div>
 
-                    <div class="form-group text-center">
-                      <button type="submit" class="btn btn-danger">
+                    <div class="form-group text-center d-flex justify-content-between">
+                      <button
+                        type="button"
+                        id="back-btn"
+                        class="btn btn-danger"
+                      >
+                        Back
+                      </button>
+                      <button type="submit" class="btn btn-success">
                         Upload Video
                       </button>
                     </div>
@@ -988,17 +991,8 @@
             <!-- add article page -->
             <section class="add_new_article d-none" id="new_article">
               <div class="main-content">
-                <div id="others-story" class="text-dark article m-4">
+                <div id="others-story" class="text-dark article my-4">
                   <div class="card story-card">
-                    <div class="btn d-inline-flex">
-                      <button
-                        type="button"
-                        id="back-btn"
-                        class="btn btn-danger"
-                      >
-                        Back
-                      </button>
-                    </div>
                     <h2 class="heading" id="new-article">Add New Article</h2>
                     <form>
                       <div class="mb-3">
@@ -1063,10 +1057,17 @@
                           >Upload an image related to the article.</small
                         >
                       </div>
-                      <div class="text-center">
+                      <div class="text-center d-flex justify-content-between">
+                        <button
+                          type="button"
+                          id="back-article_btn"
+                          class="btn btn-danger"
+                        >
+                          Back
+                        </button>
                         <button
                           type="submit"
-                          class="btn btn-danger text-center"
+                          class="btn btn-success text-center"
                         >
                           Add Article
                         </button>
@@ -1081,7 +1082,7 @@
               <div class="main-content">
                 <div class="main_div p-3 my-3">
                   <div class="text-end mb-3">
-                    <button id="add-new-video" class="btn btn-danger">
+                    <button id="add-new-user" class="btn btn-danger">
                       Add New
                     </button>
                   </div>
@@ -1115,7 +1116,7 @@
                           </td>
                         </tr>
 
-                        <!-- <tr class="user_row">
+                        <tr class="user_row">
                           <td>Jane Smith</td>
                           <td>jane@example.com</td>
                           <td>987-654-3210</td>
@@ -1266,7 +1267,7 @@
                               </button>
                             </div>
                           </td>
-                        </tr> -->
+                        </tr>
                       </tbody>
                     </table>
 
@@ -1298,6 +1299,75 @@
               </div>
             </section>
 
+            <!-- add new user -->
+            <section class="add_new_user d-none" id="new_user">
+              <div class="main-content">
+                <div class="container new__user my-4">
+                  <h2 class="text-center heading">Add New User</h2>
+                  <form>
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Name</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter your name"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="mobileNumber" class="form-label"
+                        >Mobile Number</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="mobileNumber"
+                        placeholder="Enter your mobile number"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="status" class="form-label">Status</label>
+                      <select class="form-select" id="status" required>
+                        <option value="" disabled selected>
+                          Select status
+                        </option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                      </select>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <button type="button" id="back-btn-user" class="btn btn-danger">Back</button>
+                      <button type="submit" class="btn btn-success">
+                        Register
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+
             <section id="settings" class="settings d-none">
               <div class="main-content">
                 <div class="page-title">Settings</div>
@@ -1313,7 +1383,7 @@
 
             <section id="terms-condition" class="terms-condition d-none">
               <div class="main-content">
-                <div class="container-fluid main_div t-c_div p-3 my-3">
+                <div class="container-fluid main_div t-c_div p-4 my-3">
                   <h1 class="text-center mb-5">
                     Independent Digital VLE Terms and Conditions
                   </h1>
@@ -1486,11 +1556,23 @@
 
             <section id="logout" class="logout d-none">
               <div class="main-content">
-                <div class="page-title">Logout</div>
-                <div class="content-box">
-                  <h2>Are you sure you want to logout?</h2>
-                  <button class="btn btn-primary">Logout</button>
-                  <button class="btn btn-secondary">Cancel</button>
+                <div class="card-container my-3">
+                  <div class="card logout-card">
+                    <div class="card-header">
+                      <h4 class="mb-0 text-white">Logout Confirmation</h4>
+                    </div>
+                    <div class="card-body text-white">
+                      <p>Are you sure you want to log out?</p>
+                      <div class="d-flex justify-content-center mt-4">
+                        <a href="login.html" class="btn btn-danger me-2"
+                          >Yes, Logout</a
+                        >
+                        <a href="dashboard.html" class="btn btn-secondary"
+                          >Cancel</a
+                        >
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
