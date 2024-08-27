@@ -67,7 +67,7 @@ async function fetchData(url) {
 
 // Function to load user data and display it in the table
 async function loadUserData() {
-    const data = await fetchData('http://localhost:3000/admin/all-users');
+    const data = await fetchData('https://videoapp-api.onrender.com/admin/all-users');
 
     if (!data) return; // Exit if data is not fetched
 
@@ -114,9 +114,9 @@ async function updateDashboardElement(url, elementId, property) {
 
 // Initialize data loading
 loadUserData();
-updateDashboardElement('http://localhost:3000/admin/all-users', 'total_user', 'totalUsers');
-updateDashboardElement('http://localhost:3000/admin/get-all-videos', 'total_video', 'totalVideos');
-updateDashboardElement('http://localhost:3000/admin/get-all/categories', 'total_category', 'totalCategory');
+updateDashboardElement('https://videoapp-api.onrender.com/admin/all-users', 'total_user', 'totalUsers');
+updateDashboardElement('https://videoapp-api.onrender.com/admin/get-all-videos', 'total_video', 'totalVideos');
+updateDashboardElement('https://videoapp-api.onrender.com/admin/get-all/categories', 'total_category', 'totalCategory');
 
 
 // video add new and remove button
