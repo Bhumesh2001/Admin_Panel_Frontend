@@ -56,6 +56,7 @@ async function fetchData(url) {
         });
 
         if (!response.ok) {
+            redirectToLoginPage();
             throw new Error('Network response was not ok ' + response.statusText);
         };
 
@@ -67,7 +68,7 @@ async function fetchData(url) {
 
 // Function to load user data and display it in the table
 async function loadUserData() {
-    const data = await fetchData('https://videoapp-api.onrender.com/admin/all-users');
+    const data = await fetchData('https://videoapp4-bjvqs5pj.b4a.run/admin/users');
 
     if (!data) return; // Exit if data is not fetched
 
@@ -114,9 +115,13 @@ async function updateDashboardElement(url, elementId, property) {
 
 // Initialize data loading
 loadUserData();
-updateDashboardElement('https://videoapp-api.onrender.com/admin/all-users', 'total_user', 'totalUsers');
-updateDashboardElement('https://videoapp-api.onrender.com/admin/get-all-videos', 'total_video', 'totalVideos');
-updateDashboardElement('https://videoapp-api.onrender.com/admin/get-all/categories', 'total_category', 'totalCategory');
+updateDashboardElement('https://videoapp4-bjvqs5pj.b4a.run/admin/users', 'total_user', 'totalUsers');
+updateDashboardElement('https://videoapp4-bjvqs5pj.b4a.run/admin/videos', 'total_video', 'totalVideos');
+updateDashboardElement('https://videoapp4-bjvqs5pj.b4a.run/admin/categories', 'total_category', 'totalCategory');
+
+function redirectToLoginPage(){
+    window.location.href = 'https://digital-vle-admin-login.netlify.app/';
+};
 
 
 // video add new and remove button
