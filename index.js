@@ -56,7 +56,7 @@ async function fetchData(url) {
         });
 
         if (!response.ok) {
-            // redirectToLoginPage();
+            redirectToLoginPage();
             throw new Error('Network response was not ok ' + response.statusText);
         };
 
