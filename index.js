@@ -102,22 +102,149 @@ async function loadUserData() {
     });
 };
 
+// funtion to load video data and display it on video section
+async function loadVideoData() {
+    const data = await fetchData('https://video-app-0i3v.onrender.com/admin/videos');
+    if (!data) return;
+
+    const videoRow = document.getElementById('video-row');
+
+    data.videos.forEach(video => {
+
+        const colDiv = document.createElement('div');
+        const cardDiv = document.createElement('div');
+        const img = document.createElement('img');
+
+        const cardBody = document.createElement('div');
+        const h5 = document.createElement('h5');
+
+        const btnDiv = document.createElement('div');
+
+        const editBtn = document.createElement('button');
+        const deleteBtn = document.createElement('button');
+
+        colDiv.classList.add('col-12', 'col-sm-4', 'col-md-4', 'col-lg-3', 'mb-4');
+        cardDiv.classList.add('card');
+
+        img.classList.add('card-img-top');
+        img.setAttribute('alt', 'Video Thumbnail');
+        img.src = video.thumbnail.url;
+
+        cardBody.classList.add('card-body');
+        h5.classList.add('card-title', 'mb-3');
+        h5.innerText = video.title;
+
+        btnDiv.classList.add('btn-group');
+
+        editBtn.classList.add('btn', 'btn-sm', 'btn-primary');
+        deleteBtn.classList.add('btn', 'btn-sm', 'btn-danger');
+
+        editBtn.innerText = 'Edit';
+        deleteBtn.innerText = 'Delete';
+
+        btnDiv.appendChild(editBtn);
+        btnDiv.appendChild(deleteBtn);
+
+        cardBody.appendChild(h5);
+        cardBody.appendChild(btnDiv);
+
+        cardDiv.appendChild(img);
+        cardDiv.appendChild(cardBody);
+
+        colDiv.appendChild(cardDiv);
+
+        videoRow.appendChild(colDiv);
+
+    });
+};
+
+// function to load article data and display it on article section
+async function loadArticleData() {
+    const data = await fetchData('https://video-app-0i3v.onrender.com/admin/articls');
+    if (!data) return;
+
+    const articleRow = document.getElementById('article-row');
+
+    data.articls.forEach(article => {
+
+        const colDiv = document.createElement('div');
+        const articleCard = document.createElement('div');
+        const articleImg = document.createElement('img');
+
+        const cardHeader = document.createElement('div');
+        const h5 = document.createElement('h5');
+
+        const cardBodyDiv = document.createElement('div');
+        const btnDiv = document.createElement('div');
+
+        const editBtn = document.createElement('button');
+        const deleteBtn = document.createElement('button');
+
+        colDiv.classList.add('col-12', 'col-sm-4', 'col-md-4', 'col-lg-3', 'mb-4');
+        articleCard.classList.add('card', 'article-card');
+
+        articleImg.classList.add('card-img-top', 'article-image');
+        articleImg.src = article.image;
+        articleImg.classList.add('alt', 'article_image');
+
+        cardHeader.classList.add('card-header');
+        h5.classList.add('card-title');
+        h5.innerText = article.title;
+
+        cardHeader.appendChild(h5);
+        cardBodyDiv.classList.add('card-body');
+
+        btnDiv.classList.add('d-flex', 'justify-content-end');
+
+        editBtn.classList.add('btn', 'btn-sm', 'btn-primary', 'me-2');
+        deleteBtn.classList.add('btn', 'btn-sm', 'btn-danger');
+
+        editBtn.innerText = 'Edit';
+        deleteBtn.innerText = 'Delete';
+
+        btnDiv.appendChild(editBtn);
+        btnDiv.appendChild(deleteBtn);
+
+        cardBodyDiv.appendChild(btnDiv);
+
+        articleCard.appendChild(articleImg);
+        articleCard.appendChild(cardHeader);
+        articleCard.appendChild(cardBodyDiv);
+
+        colDiv.appendChild(articleCard)
+        articleRow.appendChild(colDiv);
+
+    });
+};
+
 // Function to update DOM elements with fetched data
-async function updateDashboardElement(url, elementId, property) {
+async function updateDashboardElement(url, Data) {
     const data = await fetchData(url);
 
-    if (!data) return; // Exit if data is not fetched
+    if (!data) return;
 
-    const element = document.getElementById(elementId);
-    element.innerText = data[property];
+    for ([key, value] of Object.entries(Data)) {
+        const element = document.getElementById(key);
+        element.innerText = data[value];
+    };
 };
 
 // Initialize data loading
 loadUserData();
-updateDashboardElement('https://video-app-0i3v.onrender.com/admin/users', 'total_user', 'totalUsers');
-updateDashboardElement('https://video-app-0i3v.onrender.com/admin/videos', 'total_video', 'totalVideos');
-updateDashboardElement('https://video-app-0i3v.onrender.com/admin/categories', 'total_category', 'totalCategory');
+loadVideoData();
+loadArticleData();
 
+const url = "https://video-app-0i3v.onrender.com/admin/dashboard-count";
+const Data = {
+    "total_user": "totalUser",
+    "total_video": "totalVideo",
+    "total_category": "totalCategory",
+    "total_like": "totalArticleAndVideoLikes",
+    "total_comment": "totalArticleAndVideoComments",
+    "total_articles": "totalArticle",
+};
+
+updateDashboardElement(url, Data);
 
 // video add new and remove button
 const videoSection = document.getElementById('video');
