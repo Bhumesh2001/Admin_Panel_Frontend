@@ -161,6 +161,7 @@ async function loadVideoData() {
 // function to load article data and display it on article section
 async function loadArticleData() {
     const data = await fetchData('https://video-app-0i3v.onrender.com/admin/articls');
+
     if (!data) return;
 
     const articleRow = document.getElementById('article-row');
@@ -217,6 +218,116 @@ async function loadArticleData() {
     });
 };
 
+// function to load story data and display it on story section
+async function laodStoryData() {
+    const data = await fetchData('https://video-app-0i3v.onrender.com/admin/stories');
+
+    if (!data) return;
+
+    const story_row = document.getElementById('story-row');
+
+    data.stories.forEach(story => {
+
+        const colDiv = document.createElement('div');
+        const storyCard = document.createElement('div');
+        const storyImg = document.createElement('img');
+        const storyCardBody = document.createElement('div');
+        const h5 = document.createElement('h5');
+        const storyBtnDiv = document.createElement('div');
+        const storyEditBtn = document.createElement('button');
+        const storyDeleteBtn = document.createElement('button');
+
+        colDiv.setAttribute('class', 'col-12 col-sm-4 col-md-4 col-lg-3 mb-4');
+        storyCard.setAttribute('class', 'card story_card');
+
+        storyImg.setAttribute('class', 'card-img-top');
+        storyImg.setAttribute('alt', 'story-image');
+        storyImg.src = story.image;
+
+        storyCardBody.setAttribute('class', 'card-body');
+
+        h5.setAttribute('class', 'card-title mb-3');
+        h5.innerText = story.title;
+
+        storyBtnDiv.setAttribute('class', 'd-flex justify-content-between');
+
+        storyEditBtn.setAttribute('class', 'btn btn-primary btn-sm me-1');
+        storyDeleteBtn.setAttribute('class', 'btn btn-danger btn-sm');
+
+        storyEditBtn.innerText = 'Edit';
+        storyDeleteBtn.innerText = 'Delete';
+
+        storyBtnDiv.appendChild(storyEditBtn);
+        storyBtnDiv.appendChild(storyDeleteBtn);
+
+        storyCardBody.appendChild(h5);
+        storyCardBody.appendChild(storyBtnDiv);
+
+        storyCard.appendChild(storyImg);
+        storyCard.appendChild(storyCardBody);
+
+        colDiv.appendChild(storyCard);
+
+        story_row.appendChild(colDiv);
+
+    });
+};
+
+// function to load category data and display it on category section
+async function laodCategoryData() {
+    const data = await fetchData('https://video-app-0i3v.onrender.com/admin/categories');
+
+    if (!data) return;
+
+    const category_row = document.getElementById('category-row');
+
+    data.categories.forEach(category => {
+
+        const categoryColDiv = document.createElement('div');
+        const categoryCard = document.createElement('div');
+        const categoryImg = document.createElement('img');
+        const cateogyCardBody = document.createElement('div');
+        const h5 = document.createElement('h5');
+        const categoryBtnDiv = document.createElement('div');
+
+        const categoryEditBtn = document.createElement('button');
+        const categoryDeleteBtn = document.createElement('button');
+
+        categoryColDiv.setAttribute('class', 'col-12 col-sm-4 col-md-4 col-lg-3 mb-4');
+        categoryCard.setAttribute('class', 'card category-card');
+
+        categoryImg.setAttribute('class', 'card-img-top');
+        categoryImg.setAttribute('alt', 'category_img');
+        categoryImg.src = category.image;
+
+        cateogyCardBody.setAttribute('class', 'card-body');
+        h5.setAttribute('class', 'card-title mb-3');
+
+        h5.innerText = category.name;
+
+        categoryBtnDiv.setAttribute('class', 'd-flex justify-content-between');
+
+        categoryEditBtn.setAttribute('class', 'btn btn-primary');
+        categoryDeleteBtn.setAttribute('class', 'btn btn-danger');
+
+        categoryEditBtn.innerText = 'Edit';
+        categoryDeleteBtn.innerText = 'Delete';
+
+        categoryBtnDiv.appendChild(categoryEditBtn);
+        categoryBtnDiv.appendChild(categoryDeleteBtn);
+
+        cateogyCardBody.appendChild(h5);
+        cateogyCardBody.appendChild(categoryBtnDiv);
+
+        categoryCard.appendChild(categoryImg);
+        categoryCard.appendChild(cateogyCardBody);
+
+        categoryColDiv.appendChild(categoryCard);
+
+        category_row.appendChild(categoryColDiv);
+    });
+};
+
 // Function to update DOM elements with fetched data
 async function updateDashboardElement(url, Data) {
     const data = await fetchData(url);
@@ -233,6 +344,8 @@ async function updateDashboardElement(url, Data) {
 loadUserData();
 loadVideoData();
 loadArticleData();
+laodStoryData();
+laodCategoryData();
 
 const url = "https://video-app-0i3v.onrender.com/admin/dashboard-count";
 const Data = {
@@ -266,7 +379,6 @@ document.getElementById('back-btn').addEventListener('click', () => {
     videoSection.classList.add('d-block');
 });
 
-
 // article add new butotn and remove button
 const article = document.getElementById('article');
 const add_newArticle = document.getElementById('new_article');
@@ -288,8 +400,7 @@ document.getElementById('back-article_btn').addEventListener('click', () => {
 
 });
 
-// add new user button
-
+// add new user button 
 const users = document.getElementById('users');
 const new_user = document.getElementById('new_user');
 
@@ -306,4 +417,24 @@ document.getElementById('back-btn-user').addEventListener('click', () => {
 
     users.classList.remove('d-none');
     users.classList.add('d-block');
+});
+
+// add new story and remove button
+const story = document.getElementById('stories');
+const new_story = document.getElementById('new_story');
+
+document.getElementById('story-btn').addEventListener('click', () => {
+
+    story.classList.add('d-none');
+    new_story.classList.remove('d-none');
+    new_story.classList.add('d-block');
+});
+
+document.getElementById('back-story-btn').addEventListener('click', () => {
+
+    new_story.classList.remove('d-block');
+    new_story.classList.add('d-none');
+
+    story.classList.remove('d-none');
+    story.classList.add('d-block');
 });
