@@ -103,6 +103,14 @@
             >
             <a
               draggable="false"
+              id="story"
+              data-target="#stories"
+              class="nav-link sidebar-link"
+              href="#"
+              ><i class="fas fa-newspaper"></i> Stories</a
+            >
+            <a
+              draggable="false"
               data-target="#settings"
               class="nav-link sidebar-link"
               href="#"
@@ -142,7 +150,9 @@
                         <h5 class="card-title">
                           <i class="fas fa-users"></i> Total Users
                         </h5>
-                        <h4 class="card-text card_text users" id="total_user">0</h4>
+                        <h4 class="card-text card_text users" id="total_user">
+                          0
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -156,7 +166,9 @@
                         <h5 class="card-title">
                           <i class="fas fa-video"></i> Total Videos
                         </h5>
-                        <h4 class="card-text card_text videos" id="total_video">0</h4>
+                        <h4 class="card-text card_text videos" id="total_video">
+                          0
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -166,7 +178,10 @@
                         <h5 class="card-title">
                           <i class="fas fa-th-list"></i> Total Categories
                         </h5>
-                        <h4 class="card-text card_text categories" id="total_category">
+                        <h4
+                          class="card-text card_text categories"
+                          id="total_category"
+                        >
                           0
                         </h4>
                       </div>
@@ -181,7 +196,9 @@
                         <h5 class="card-title">
                           <i class="fas fa-thumbs-up"></i> Total Likes
                         </h5>
-                        <h4 class="card-text card_text likes" id="total_like">0</h4>
+                        <h4 class="card-text card_text likes" id="total_like">
+                          0
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -191,7 +208,12 @@
                         <h5 class="card-title">
                           <i class="fas fa-comments"></i> Total Comments
                         </h5>
-                        <h4 class="card-text card_text comments" id="total_comment">0</h4>
+                        <h4
+                          class="card-text card_text comments"
+                          id="total_comment"
+                        >
+                          0
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -205,7 +227,10 @@
                         <h5 class="card-title">
                           <i class="fas fa-share-alt"></i> Total Articles
                         </h5>
-                        <h4 class="card-text card_text articles" id="total_articles">
+                        <h4
+                          class="card-text card_text articles"
+                          id="total_articles"
+                        >
                           0
                         </h4>
                       </div>
@@ -284,11 +309,11 @@
               </div>
             </section>
 
-            <!-- upload video page -->
+            <!-- add new video -->
             <section class="add_new_videoPage d-none" id="new_video">
               <div class="main-content">
                 <div class="form-container my-4" id="upload-video">
-                  <h2 class="text-center heading">Upload Video</h2>
+                  <h2 class="text-center heading">Add New Video</h2>
 
                   <form id="video-form">
                     <div class="form-group mb-3">
@@ -455,7 +480,7 @@
                         Back
                       </button>
                       <button type="submit" class="btn btn-success">
-                        Upload Video
+                        Add Video
                       </button>
                     </div>
                   </form>
@@ -499,7 +524,7 @@
               </div>
             </section>
 
-            <!-- add article page -->
+            <!-- add new article -->
             <section class="add_new_article d-none" id="new_article">
               <div class="main-content">
                 <div id="others-story" class="text-dark article my-4">
@@ -610,32 +635,32 @@
                         </tr>
                       </thead>
                       <tbody id="t-body"></tbody>
-                    </table>
-
-                    <nav aria-label="Page navigation example">
-                      <ul class="pagination m-0">
-                        <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                          </a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">1</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
-                          <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
+                    </table>                    
                   </div>
+                  
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination m-0">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
                 </div>
               </div>
             </section>
@@ -707,7 +732,7 @@
                         Back
                       </button>
                       <button type="submit" class="btn btn-success">
-                        Register
+                        Add User
                       </button>
                     </div>
                   </form>
@@ -723,132 +748,7 @@
                       Add New
                     </button>
                   </div>
-                  <div class="row">
-                    <div class="col-md-4 mb-4">
-                      <div class="card category-card">
-                        <img
-                          src="https://via.placeholder.com/300x200"
-                          class="card-img-top"
-                          alt="Category 1"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">Category 1</h5>
-                          <p class="card-text text-white">
-                            Explore a variety of services and products in this
-                            category.
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card category-card">
-                        <img
-                          src="https://via.placeholder.com/300x200"
-                          class="card-img-top"
-                          alt="Category 2"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">Category 2</h5>
-                          <p class="card-text text-white">
-                            Discover new opportunities and offerings in this
-                            category.
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card category-card">
-                        <img
-                          src="https://via.placeholder.com/300x200"
-                          class="card-img-top"
-                          alt="Category 3"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">Category 3</h5>
-                          <p class="card-text text-white">
-                            Find the best deals and services tailored for you.
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card category-card">
-                        <img
-                          src="https://via.placeholder.com/300x200"
-                          class="card-img-top"
-                          alt="Category 4"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">Category 4</h5>
-                          <p class="card-text text-white">
-                            Explore innovative solutions available in this
-                            category.
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card category-card">
-                        <img
-                          src="https://via.placeholder.com/300x200"
-                          class="card-img-top"
-                          alt="Category 5"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">Category 5</h5>
-                          <p class="card-text text-white">
-                            Uncover exciting products and services in this
-                            category.
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                      <div class="card">
-                        <img
-                          src="https://via.placeholder.com/300x200"
-                          class="card-img-top"
-                          alt="Category 6"
-                        />
-                        <div class="card-body">
-                          <h5 class="card-title">Category 6</h5>
-                          <p class="card-text text-white">
-                            Join us in exploring the latest offerings in this
-                            category.
-                          </p>
-                          <div class="d-flex justify-content-between">
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  <div class="row" id="category-row"></div>
                   <nav aria-label="Page navigation example">
                     <ul class="pagination m-0">
                       <li class="page-item">
@@ -872,6 +772,151 @@
                       </li>
                     </ul>
                   </nav>
+                </div>
+              </div>
+            </section>
+
+            <section class="story d-none" id="stories">
+              <div class="main-content">
+                <div class="container-fluid main_div p-3 my-3">
+                  <div class="text-end mb-3">
+                    <button id="story-btn" class="btn btn-danger">
+                      Add New
+                    </button>
+                  </div>
+
+                  <div class="row" id="story-row"></div>
+
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination m-0">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">1</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">2</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#">3</a>
+                      </li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </section>
+
+            <!-- add new story -->
+            <section class="add_new_story d-none" id="new_story">
+              <div class="main-content">
+                <div class="container story-container my-4">
+                  <h2 class="text-center heading pt-3">Add New Story</h2>
+                  <form class="p-4">
+                    <div class="mb-3">
+                      <label for="story-title" class="form-label">story-title</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="story-title"
+                        placeholder="Enter story title"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="authorName" class="form-label"
+                        >Author Name</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="authorName"
+                        placeholder="Enter author name"
+                        value="Alice Johnson"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="publicationDate" class="form-label"
+                        >Publication Date</label
+                      >
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="publicationDate"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="content" class="form-label">Content</label>
+                      <textarea
+                        class="form-control"
+                        id="content"
+                        rows="4"
+                        placeholder="Enter story content"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="mb-3">
+                      <label for="genre" class="form-label">Genre</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="genre"
+                        placeholder="Enter story genre"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="characters" class="form-label"
+                        >Characters</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="characters"
+                        placeholder="Enter characters separated by commas"
+                        required
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label for="image" class="form-label">Image</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="image"
+                        placeholder="Enter image URL"
+                        required
+                      />
+                    </div>
+                    <div class="form-check mb-3">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="latest"
+                        checked
+                      />
+                      <label class="form-check-label" for="latest">
+                        Mark as Latest Story
+                      </label>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <a href="#" id="back-story-btn" class="btn btn-danger"
+                        >Back</a
+                      >
+                      <button type="submit" class="btn btn-success">
+                        Add Story
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </div>
             </section>
